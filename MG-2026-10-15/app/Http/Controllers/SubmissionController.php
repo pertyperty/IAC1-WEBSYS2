@@ -88,8 +88,6 @@ class SubmissionController extends Controller
             ->route('assignments.show', $assignment)
             ->with('success', 'Submission uploaded successfully.');
     }
-
-    // Download only if the user is authorized.
     public function download(Request $request, Submission $submission)
     {
         $user = $request->user();

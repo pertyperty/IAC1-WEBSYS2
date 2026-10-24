@@ -18,7 +18,7 @@
     <table>
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Submission ID</th>
                 <th>Student</th>
                 <th>Assignment</th>
                 <th>Filename</th>
