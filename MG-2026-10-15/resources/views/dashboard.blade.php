@@ -1,15 +1,42 @@
-<h1>Welcome, {{ $user->name }}</h1>
-<p>Role: {{ $user->role }}</p>
+@extends('layouts.app')
 
-@if ($user->isInstructor())
-    <h2>Instructor Dashboard</h2>
-    <p>Manage assignments and submissions.</p>
-@else
-    <h2>Student Dashboard</h2>
-    <p>View assignments and submit work.</p>
-@endif
+@section('title', 'Dashboard')
 
-<form method="POST" action="{{ route('logout') }}">
-    @csrf
-    <button type="submit">Logout</button>
-</form>
+@section('content')
+
+<div class="card">
+    <h1>Welcome, {{ $user->name }}</h1>
+
+    <p>
+        Logged in as:
+        <strong>{{ ucfirst($user->role) }}</strong>
+    </p>
+
+    @if ($user->isInstructor())
+        <h2>Instructor Dashboard</h2>
+        <p>Create assignments, upload instructions,
+           and review student submissions.</p>
+
+        <a class="btn"
+           href="{{ route('assignments.create') }}">
+            Create Assignment
+        </a>
+
+    @else
+        <h2>Student Dashboard</h2>
+        <p>View your assignments, read PDF instructions,
+           and submit completed work.</p>
+    @endif
+
+    <a class="btn"
+       href="{{ route('assignments.index') }}">
+        View Assignments
+    </a>
+
+    <a class="btn"
+       href="{{ route('submissions.index') }}">
+        View Submissions
+    </a>
+</div>
+
+@endsection
