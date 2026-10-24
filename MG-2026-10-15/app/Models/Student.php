@@ -28,4 +28,9 @@ class Student extends Model
     {
         return $this->hasMany(Assignment::class);
     }
+
+    public function submissions()
+    {
+        return $this->hasMany(Submission::class);
+    }
 }

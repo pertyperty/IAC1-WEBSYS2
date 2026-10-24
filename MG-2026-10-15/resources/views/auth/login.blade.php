@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Student Assignment System</h1>
+
+    @if ($errors->any())
+        <p>{{ $errors->first() }}</p>
+    @endif
+
+    <form method="POST" action="{{ route('login.submit') }}">
+        @csrf
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
